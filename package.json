@@ -1,0 +1,13 @@
+{
+  "name": "Caelus",
+  "description": "Caelus Chrome extension for weather based images on new tab page",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "request": "^2.78.0"
+  }
+}
