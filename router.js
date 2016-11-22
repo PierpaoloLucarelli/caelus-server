@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 require('dotenv').config();
 var request = require('request');
-var weatherMap = require('../models/weatherMap.js');
+var weatherMap = require('./models/weatherMap.js');
 
 // will return weather JSON
 router.get('/api/open_weather_map', function(req, res) {
