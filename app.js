@@ -5,9 +5,8 @@ var router = require("./router.js");
 
 app.use(router);
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var server_port = process.env.PORT || 8080;
 
-app.listen(server_port, server_ip_address, function(){
+app.listen(server_port, function(){
     console.log('App is running on port 8080');
 });
