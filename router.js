@@ -8,6 +8,7 @@ var weatherMap = require('./models/weatherMap.js');
 router.get('/api/open_weather_map', function(req, res) {
     console.log("recieved request");
     var key = process.env.OPEN_WEATHER_KEY;
+    console.log(key);
     request('http://api.openweathermap.org/data/2.5/weather?lat='+ req.query.lat +
             '&lon='+ req.query.lon +'&appid=' + key, function (error, response, body) {
         if (!error && response.statusCode == 200) {
