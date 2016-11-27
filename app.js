@@ -8,5 +8,5 @@ app.use(router);
 var server_port = process.env.PORT || 8080;
 
 app.listen(server_port, function(){
-    console.log('App is running on port 8080');
+
 });
