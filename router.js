@@ -17,6 +17,10 @@ router.get('/api/open_weather_map', function(req, res) {
     });
 });
 
+router.get("/hello", function(req,res){
+    res.send("hello");
+});
+
 var get_images = function(res, weatherInfo, time){
     var weatherString = JSON.parse(weatherInfo);
     var main = weatherString["weather"][0].main;
