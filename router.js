@@ -7,7 +7,6 @@ var weatherMap = require('./models/weatherMap.js');
 router.get('/api/open_weather_map', function(req, res) {
     console.log("recieved request");
     var key = process.env.OPEN_WEATHER_KEY;
-    console.log(key);
     request('http://api.openweathermap.org/data/2.5/weather?lat='+ req.query.lat +
             '&lon='+ req.query.lon +'&appid=' + key, function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -30,16 +29,10 @@ var get_images = function(res, weatherInfo, time){
         timeFlag = "Night";
     }
     weatherMap.getCollection(timeFlag, main, function(col){
-        request("https://api.unsplash.com/collections/"+ col +"/photos?client_id=" + process.env.UNSPLASH_KEY, function (error, response, body) {
+        request("https://api.unsplash.com/photos/random?collections="+col+"&client_id=" + process.env.UNSPLASH_KEY, function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                var images = JSON.parse(body); //blocking!!
-                var index = Math.floor(Math.random()*images.length);
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                var result = {
-                    weather: weatherInfo,
-                    image: images[index].urls.full
-                }
-                res.send(result);
+                res.send(body);
             }
         });
     })
