@@ -32,7 +32,7 @@ var get_images = function(res, weatherInfo, time){
         request("https://api.unsplash.com/photos/random?collections="+col+"&client_id=" + process.env.UNSPLASH_KEY, function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 res.setHeader("Access-Control-Allow-Origin", "*");
-                res.send(body);
+                res.json(body);
             }
         });
     })
